@@ -43,7 +43,6 @@ function onClick(event) {
 }
 
 const lightbox = new SimpleLightbox(".gallery a", {
-  captionClass: "center",
-  captionPosition: "bottom",
+  captionData: "alt",
   captionDelay: 250,
 });
