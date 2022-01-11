@@ -10,7 +10,7 @@ console.log(galleryItems);
 const gallery = document.querySelector(".gallery");
 
 const links = galleryItems.map((item) => {
-  const markup = `<a class="gallery__item" href="${item.original}"><img class="gallery__image" src="${item.preview}" data-source="${item.original}" title="${item.description}"/></a>`;
+  const markup = `<li><a class="gallery__item" href="${item.original}"><img class="gallery__image" src="${item.preview}" data-source="${item.original}" title="${item.description}"/></a></li>`;
 
   return markup;
 });
@@ -20,6 +20,8 @@ const addItem = links.join("");
 
 gallery.insertAdjacentHTML("afterbegin", addItem);
 console.log(gallery);
+
+const img = document.querySelectorAll(".gallery__image");
 
 // 2. Реализация делегирования на div.gallery
 //    и получение url большого изображения.
@@ -34,7 +36,7 @@ function onClick(event) {
   const largeImageLink = event.target.dataset.source;
 
   // 4. Открытие модального окна по клику на элементе галереи.
-  if (event.target.nodeName === "IMG") {
+  if (event.target.nodeName === "LI") {
     console.log(event.target.nodeName);
     // console.log(event.target);
     console.log("Modal window is open");
