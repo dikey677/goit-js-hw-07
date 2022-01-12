@@ -9,19 +9,27 @@ console.log(galleryItems);
 //    Используй готовый код из первого задания.
 const gallery = document.querySelector(".gallery");
 
-const links = galleryItems.map((item) => {
-  const markup = `<li><a class="gallery__item" href="${item.original}"><img class="gallery__image" src="${item.preview}" data-source="${item.original}" title="${item.description}"/></a></li>`;
+const link = galleryItems.map((item) => {
+  const markup = `<li class="item">
+                    <a class="gallery__item" href="${item.original}">
+                      <img class="gallery__image" src="${item.preview}" data-source="${item.original}" title="${item.description}" />
+                    </a>
+                  </li>`;
 
   return markup;
 });
 
-const addItem = links.join("");
+const addItem = link.join("");
 // console.log(addItem);
 
 gallery.insertAdjacentHTML("afterbegin", addItem);
 console.log(gallery);
 
-const img = document.querySelectorAll(".gallery__image");
+// const item = document.querySelectorAll("li");
+// console.log(item);
+// console.log(item.style);
+// item.style.display = "flex";
+// // galeryItem.style.boxSizing = "borderBox";
 
 // 2. Реализация делегирования на div.gallery
 //    и получение url большого изображения.
